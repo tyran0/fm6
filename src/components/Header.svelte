@@ -34,8 +34,7 @@
                     hence why I've decided to put `aria-hidden="true"`.
                 -->
                 <span>Open your cart</span>
-                <!-- TODO: Move images/ to public/ -->
-                <img src="../../images/image-avatar.png" alt=""
+                <img src="./images/image-avatar.png" alt=""
                      width="44" height="44">
             </button>
         </div>
