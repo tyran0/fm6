@@ -7,14 +7,14 @@
     // ENTRY CODE
 </script>
 
-<SvgAtlas />
-<Header />
+<SvgAtlas/>
+<Header/>
 <main>
     <article>
         <h2>Product Card</h2>
         <section>
             <h3>Product Pictures</h3>
-            <ImageSlider />
+            <ImageSlider/>
         </section>
         <section>
             <header aria-hidden="true">
