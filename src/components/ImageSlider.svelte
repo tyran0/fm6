@@ -8,11 +8,15 @@
     <div> <!-- PREVIEW -->
         <button>
             <span>Previous Image</span>
-            <div aria-hidden="true"></div> <!-- SVG Icon will be added later -->
+            <svg width="12" height="18" viewBox="0 0 12 18">
+                <use href="#svg_icon-previous"></use>
+            </svg>
         </button>
         <button>
             <span>Next Image</span>
-            <div aria-hidden="true"></div> <!-- SVG Icon will be added later -->
+            <svg width="13" height="18" viewBox="0 0 13 18">
+                <use href="#svg_icon-next"></use>
+            </svg>
         </button>
     </div>
     <div> <!-- ACTUAL IMAGES -->

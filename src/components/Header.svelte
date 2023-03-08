@@ -11,7 +11,8 @@
         <div>
             <button aria-expanded="false">
                 <span>Open the menu</span>
-                <div aria-hidden="true"></div> <!-- SVG Icon will be added later -->
+                <svg width="16" height="15" viewBox="0 0 16 15">
+                    <use href="#svg_icon-menu"></use>
             </button>
             <ul aria-hidden="true" hidden>
                 <a href="/">Collections</a>
@@ -20,10 +21,16 @@
                 <a href="/">About</a>
                 <a href="/">Contact</a>
             </ul>
-            <div aria-hidden="true"></div> <!-- SVG Icon will be added later -->
+            <a href="/">
+                <svg width="138" height="20" viewBox="0 0 138 20">
+                    <use href="#svg_logo"></use>
+                </svg>
+            </a>
             <button>
                 <span>Open your cart</span>
-                <div aria-hidden="true"></div> <!-- SVG Icon will be added later -->
+                <svg width="22" height="20" viewBox="0 0 22 20">
+                    <use href="#svg_icon-cart"></use>
+                </svg>
             </button>
             <button aria-hidden="true">
                 <!--

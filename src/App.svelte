@@ -49,21 +49,23 @@
                 <div>
                     <button type="button">
                         <span>Remove item</span>
-                        <div aria-hidden="true"> <!-- SVG icon will be added later -->
-                            -
-                        </div>
+                        <svg width="12" height="4" viewBox="0 0 12 4">
+                            <use href="#svg_icon-minus" fill="#ff7e1b" fill-rule="nonzero"></use>
+                        </svg>
                     </button>
                     <input type="number" name="" id=""
                            min="0">
                     <button type="button">
                         <span>Add item</span>
-                        <div aria-hidden="true"> <!-- SVG icon will be added later -->
-                            +
-                        </div>
+                        <svg width="12" height="12" viewBox="0 0 12 12">
+                            <use href="#svg_icon-plus" fill="#ff7e1b" fill-rule="nonzero"></use>
+                        </svg>
                     </button>
                 </div>
                 <button type="submit">
-                    <div aria-hidden="true"></div> <!-- SVG icon will be added later -->
+                    <svg width="22" height="20" viewBox="0 0 22 20">
+                        <use href="#svg_icon-cart"></use>
+                    </svg>
                     <span>Add to cart</span>
                 </button>
             </form>
