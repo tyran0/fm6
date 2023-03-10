@@ -1,4 +1,5 @@
 <script>
+    import { getOutermostParent } from '../lib/utils.js';
     import { onMount } from "svelte";
 
     export let slider;
@@ -31,11 +32,8 @@
             data.id = id;
         });
 
-        const img = document.createElement('img');
+        const img = previewWrapper.querySelector('img');
         swap = makeSwap(img);
-
-        img.alt = data.alt;
-        img.src = data.src;
         img.dataset.id = data.id;
 
         preview = img;
@@ -78,20 +76,10 @@
         timeout = setTimeout(_f, time);
     }
 
-    function bubbleToParent(node, expr, limit=document.body) {
-        if (!node) return;
-
-        if (node === limit) return;
-        if (expr(node)) return node;
-
-        const parent = node.parentNode ? node.parentNode : null;
-        if (parent) return bubbleToParent(parent, expr, limit);
-    } 
-
     function onClick(e) {
         const target = e.target;
 
-        const button = bubbleToParent(target,
+        const button = getOutermostParent(target,
             node => node.nodeName === 'BUTTON',
             slider);
 
@@ -102,7 +90,7 @@
             handlePreviewVFX(direction, `transform: translateX(${x})`, 500)
         }
 
-        const slide = bubbleToParent(target,
+        const slide = getOutermostParent(target,
             node => node.dataset && 'slide' in node.dataset,
             thumbsWrapper);
             
@@ -135,14 +123,14 @@
 <div class="image-slider" bind:this={slider} on:click={onClick}>
     <div class="image-slider__wrapper">
         <div class="image-slider__controls">
-            <button class="button js-button"
+            <button class="button  button--round js-button"
                     data-action="previous">
                 <span class="sr-only">Previous Image</span>
-                <svg aria-hidden="true" width="12" height="18" viewBox="0 0 12 18">
+                <svg aria-hidden="true" width="15" height="18" viewBox="0 0 15 18">
                     <use href="#svg_icon-previous"></use>
                 </svg>
             </button>
-            <button class="button js-button"
+            <button class="button button--round js-button"
                     data-action="next">
                 <span class="sr-only">Next Image</span>
                 <svg aria-hidden="true" width="13" height="18" viewBox="0 0 13 18">
@@ -150,7 +138,9 @@
                 </svg>
             </button>
         </div>
-        <div class="image-slider__preview" bind:this={previewWrapper}></div>
+        <div class="image-slider__preview" bind:this={previewWrapper}>
+            <img src="./images/image-product-1.jpg" alt="Preview" width="425" height="425">
+        </div>
     </div>
     <div class="image-slider__thumbs" aria-hidden="true" bind:this={thumbsWrapper} style="display: none;">
         <div data-slide class="image-slider__item" data-src="./images/image-product-1.jpg" data-alt="123">
