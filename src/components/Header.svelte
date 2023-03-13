@@ -1,25 +1,58 @@
 <script>
+    import { onMount } from "svelte";
   import { getButton } from "../lib/utils.js";
 
-  function onclick(e) {
-    const root = e.currentTarget;
-    const t = e.target;
+  export let menu;
+  export let dropdown;
+  export let dropdownExpanded = false;
 
-    const button = getButton(t, root);
+  let isActive = false;
+
+  function onclick(e) {
+    const t = e.target;
+    const self = e.currentTarget;
+    const button = getButton(t, self);
+
     if (!button) return;
 
-    console.log(button);
+    const data = button.dataset;
+    if (!data.for) return;
+
+    const elem = self.querySelector(data.for);
+    let state;
+
+    if (elem === menu && window.innerWidth >= 768) {
+      return;
+    }
+
+    if (elem === dropdown) {
+      state = dropdownExpanded;
+      dropdownExpanded = !state;
+    } else {
+      state = button.ariaExpanded === 'true' ? true : false;
+      button.ariaExpanded = !state;
+      elem.ariaHidden = state;
+    }
+    
+    elem.style.display = state ? 'none' : 'block';
+    isActive = true;
   }
+
+  onMount(() => {
+    dropdown.style.display = dropdown.ariaHidden === 'true' ? 'none' : 'block';
+    if (window.innerWidth < 768) {
+      menu.style.display = menu.ariaHidden === 'true' ? 'none' : 'block';
+    }
+  })
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <header class="header" on:click={onclick}>
   <nav class="nav layout" aria-label="Primary menu">
-    <span class="nav__wrapper">
+    <div class="nav__wrapper">
       <button
         aria-expanded="false"
         class="js-button"
-        data-action="expand"
         data-for=".nav__menu"
       >
         <span class="sr-only">Open the menu</span>
@@ -33,7 +66,7 @@
           <use href="#svg_icon-menu" />
         </svg></button
       >
-      <ul class="nav__menu link-list" aria-hidden="true" hidden>
+      <ul class="nav__menu link-list" aria-hidden="true" bind:this={menu}>
         <li class="link-list__item">
           <a href="/">Collections</a>
         </li>
@@ -50,18 +83,19 @@
           <a href="/">Contact</a>
         </li>
       </ul>
-    </span>
-    <a class="header__logo" href="/" aria-hidden="true">
-      <svg width="138" height="20" viewBox="0 0 138 20">
-        <use href="#svg_logo" />
-      </svg>
-    </a>
-    <span class="dropdown">
+    </div>
+    <div class="header__logo">
+      <a href="/" aria-hidden="true">
+        <svg width="138" height="20" viewBox="0 0 138 20">
+          <use href="#svg_logo" />
+        </svg>
+      </a>
+    </div>
+    <div class="dropdown">
       <button
+        aria-expanded={dropdownExpanded}
         class="js-button"
-        data-action="expand"
-        data-scope="local"
-        data-for=".dropdown-inner"
+        data-for=".dropdown__inner"
       >
         <span class="sr-only">Open your cart</span>
         <svg
@@ -75,22 +109,23 @@
         </svg>
       </button>
       <button
+        aria-expanded={dropdownExpanded}
         class="js-button"
-        data-action="expand"
-        data-scope="local"
         data-for=".dropdown__inner"
       >
         <span class="sr-only">Open your cart</span>
         <img
           aria-hidden="true"
-          class="button__icon"
+          class="button__icon header__avatar"
           src="./images/image-avatar.png"
           alt=""
           width="24"
           height="24"
         />
       </button>
-      <div class="dropdown__inner" />
-    </span>
+      <div class="dropdown__inner" aria-hidden={!dropdownExpanded} bind:this={dropdown}>
+        <article class="dropdown__widget">DROPDOWN</article>
+      </div>
+    </div>
   </nav>
 </header>

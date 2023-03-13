@@ -1,16 +1,22 @@
 :root {
+  --layout_max-width: 960px;
+  --layout_padding: 1.25rem;
+  --header_min-height: 30px;
+  --header-menu_width: 66vw;
+
   --color_primary_orange-500: hsl(26 100% 55%);
-  --color_primary_orange-500_33: hsl(26 100% 55% / .33);
+  --color_primary_orange-500_33: hsl(26 100% 55% / 0.33);
   --color_primary_orange-900: hsl(25 100% 94%);
   --color_neutral_blue-100: hsl(220 13% 13%);
   --color_neutral_blue-300: hsl(219 9% 45%);
   --color_neutral_blue-500: hsl(220 14% 75%);
+  --color_neutral_blue-500_50: hsl(220 14% 75% / 0.5);
   --color_neutral_blue-900: hsl(223 64% 98%);
   --color_neutral_white: hsl(0 0% 100%);
   --color_neutral_black: hsl(0 0% 0%);
-  --color_neutral_black_75: hsl(0 0% 0% / .75);
+  --color_neutral_black_75: hsl(0 0% 0% / 0.75);
 
-  --font_caption: 700 .75rem / 1 'Kumbh Sans', sans-serif;
-  --font_heading: 700 1.75rem / 1.1 'Kumbh Sans', sans-serif;
-  --font_paragraph: 400 1rem / 1.5 'Kumbh Sans', sans-serif;
+  --font_caption: 700 0.75rem / 1 "Kumbh Sans", sans-serif;
+  --font_heading: 700 1.75rem / 1.1 "Kumbh Sans", sans-serif;
+  --font_paragraph: 400 1rem / 1.5 "Kumbh Sans", sans-serif;
 }

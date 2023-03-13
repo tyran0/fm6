@@ -1,5 +1,5 @@
 <script>
-  import { getOutermostParent } from "../lib/utils.js";
+  import { getButton, getOutermostParent } from "../lib/utils.js";
   import { onMount } from "svelte";
 
   export let slider;
@@ -76,12 +76,7 @@
 
   function onClick(e) {
     const target = e.target;
-
-    const button = getOutermostParent(
-      target,
-      (node) => node.nodeName === "BUTTON",
-      slider
-    );
+    const button = getButton(target, e.currentTarget);
 
     if (button) {
       const action = button.dataset.action;
@@ -190,7 +185,12 @@
         height="64"
       />
     </div>
-    <div data-slide data-src="./images/image-product-4.jpg" data-alt="abc">
+    <div
+      data-slide
+      class="image-slider__item"
+      data-src="./images/image-product-4.jpg"
+      data-alt="abc"
+    >
       <img
         src="./images/image-product-4-thumbnail.jpg"
         alt=""
