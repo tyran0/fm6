@@ -2,7 +2,7 @@
   import "./css/styles.css";
   import Header from "./components/Header.svelte";
   import SvgAtlas from "./components/SvgAtlas.svelte";
-  import ImageSlider from "./components/ImageSlider.svelte";
+  import ImageSlider from "./components/ImageSlider/index.svelte";
 </script>
 
 <SvgAtlas />
@@ -22,8 +22,8 @@
         <h3 class="copy__heading">Fall Limited Edition Sneakers</h3>
         <p class="copy__paragraph">
           These low-profile sneakers are your perfect casual wear companion.
-          Featuring a durable rubber outer sole, they’ll withstand everything the
-          weather can offer.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.
         </p>
       </section>
       <section class="container__section price-tag copy layout">
@@ -59,7 +59,11 @@
                 height="4"
                 viewBox="0 0 12 4"
               >
-                <use href="#svg_icon-minus" fill="#ff7e1b" fill-rule="nonzero" />
+                <use
+                  href="#svg_icon-minus"
+                  fill="#ff7e1b"
+                  fill-rule="nonzero"
+                />
               </svg>
             </button>
             <input
@@ -67,7 +71,7 @@
               name="item-count"
               id="item-count"
               class="item-count__input"
-              min="0"
+              min="1"
               value="0"
             />
             <button

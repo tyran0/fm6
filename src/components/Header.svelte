@@ -1,5 +1,5 @@
 <script>
-    import { onMount } from "svelte";
+  import { onMount } from "svelte";
   import { getButton } from "../lib/utils.js";
 
   export let menu;
@@ -29,32 +29,28 @@
       state = dropdownExpanded;
       dropdownExpanded = !state;
     } else {
-      state = button.ariaExpanded === 'true' ? true : false;
+      state = button.ariaExpanded === "true" ? true : false;
       button.ariaExpanded = !state;
       elem.ariaHidden = state;
     }
-    
-    elem.style.display = state ? 'none' : 'block';
+
+    elem.style.display = state ? "none" : "block";
     isActive = true;
   }
 
   onMount(() => {
-    dropdown.style.display = dropdown.ariaHidden === 'true' ? 'none' : 'block';
+    dropdown.style.display = dropdown.ariaHidden === "true" ? "none" : "block";
     if (window.innerWidth < 768) {
-      menu.style.display = menu.ariaHidden === 'true' ? 'none' : 'block';
+      menu.style.display = menu.ariaHidden === "true" ? "none" : "block";
     }
-  })
+  });
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <header class="header" on:click={onclick}>
   <nav class="nav layout" aria-label="Primary menu">
     <div class="nav__wrapper">
-      <button
-        aria-expanded="false"
-        class="js-button"
-        data-for=".nav__menu"
-      >
+      <button aria-expanded="false" class="js-button" data-for=".nav__menu">
         <span class="sr-only">Open the menu</span>
         <svg
           aria-hidden="true"
@@ -123,7 +119,11 @@
           height="24"
         />
       </button>
-      <div class="dropdown__inner" aria-hidden={!dropdownExpanded} bind:this={dropdown}>
+      <div
+        class="dropdown__inner"
+        aria-hidden={!dropdownExpanded}
+        bind:this={dropdown}
+      >
         <article class="dropdown__widget">DROPDOWN</article>
       </div>
     </div>

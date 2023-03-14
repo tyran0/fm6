@@ -61,7 +61,6 @@
                 -->
         <path
           d="m2 1 8 8-8 8"
-          stroke="#1D2026"
           stroke-width="3"
           fill="none"
           fill-rule="evenodd"
@@ -85,7 +84,6 @@
                 -->
         <path
           d="M11 1 3 9l8 8"
-          stroke="#1D2026"
           stroke-width="3"
           fill="none"
           fill-rule="evenodd"
