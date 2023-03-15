@@ -71,7 +71,9 @@
   <h3 class="sr-only">Pricing</h3>
   <figure class="price-tag__discounted-price">
     <figcaption class="sr-only">Discounted price</figcaption>
-    <span class="copy__heading" data-key="discounted_price">${actualPrice}</span
+    <span
+      class="copy__heading copy__heading--primary"
+      data-key="discounted_price">${actualPrice}</span
     >
   </figure>
   <figure class="price-tag__discount-percentage">
