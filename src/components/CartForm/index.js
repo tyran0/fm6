@@ -25,16 +25,18 @@ export function saveItemsInCart(totalItemCount = 0, items = []) {
 
 function createTextContent(name, price, amount, totalPrice) {
   const content = document.createElement("span");
-  const title = document.createElement("div");
   const highlight = content.cloneNode(false);
   const priceTag = content.cloneNode(false);
-  const details = title.cloneNode(false);
+  const details = content.cloneNode(false);
+  const title = content.cloneNode(false);
 
+  highlight.classList.add("copy__heading--secondary");
   priceTag.classList.add("copy__paragraph");
   highlight.classList.add("copy__heading");
-  highlight.classList.add("copy__heading--secondary");
-  highlight.style.marginLeft = "0.5rem";
   title.classList.add("copy__paragraph");
+  highlight.style.marginLeft = "0.5rem";
+  details.style.display = "block";
+  title.style.display = "block";
   content.classList.add("copy");
 
   priceTag.innerText = `$${price.toPrecision(5)} x ${amount}`;
@@ -99,8 +101,9 @@ export function renderCartItems(cartItems, cartItemsList) {
     const img = document.createElement("img");
     img.style.borderRadius = ".25rem";
     img.src = thumbnail;
-    img.width = 64;
     img.height = 64;
+    img.width = 64;
+    img.alt = "";
 
     const content = createTextContent(name, price, amount, totalPrice);
     const button = createDeleteButton(li, cartItems, id, root);

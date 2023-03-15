@@ -125,10 +125,15 @@
         <article class="dropdown__widget" data-has-items="false">
           <h2 class="sr-only">Your cart</h2>
           <section class="copy">
-            <h2 class="copy__heading copy__heading--secondary">Cart</h2>
+            <h2
+              class="copy__heading copy__heading--secondary"
+              aria-hidden="true"
+            >
+              Cart
+            </h2>
           </section>
           <section class="copy dropdown__placeholder">
-            <p class="copy__paragraph">Your cart is empty.</p>
+            <h3 class="copy__paragraph">Your cart is empty.</h3>
           </section>
           <ul id="cart-dropdown" class="cart-dropdown" />
           <button class="button button--accent">Checkout</button>
