@@ -1,12 +1,12 @@
 <script>
   import { onMount } from "svelte";
   import { getButton } from "../lib/utils.js";
+  import { loadItemsInCart } from "./CartForm/index.js";
 
-  export let menu;
-  export let dropdown;
-  export let dropdownExpanded = false;
-
+  let menu;
+  let dropdown;
   let isActive = false;
+  let dropdownExpanded = false;
 
   function onclick(e) {
     const t = e.target;
@@ -39,6 +39,7 @@
   }
 
   onMount(() => {
+    loadItemsInCart();
     dropdown.style.display = dropdown.ariaHidden === "true" ? "none" : "block";
     if (window.innerWidth < 768) {
       menu.style.display = menu.ariaHidden === "true" ? "none" : "block";
@@ -50,7 +51,7 @@
 <header class="header" on:click={onclick}>
   <nav class="nav layout" aria-label="Primary menu">
     <div class="nav__wrapper">
-      <button aria-expanded="false" class="js-button" data-for=".nav__menu">
+      <button aria-expanded="false" data-for=".nav__menu">
         <span class="sr-only">Open the menu</span>
         <svg
           aria-hidden="true"
@@ -90,9 +91,10 @@
     <div class="dropdown">
       <button
         aria-expanded={dropdownExpanded}
-        class="js-button"
+        class="cart-counter"
         data-for=".dropdown__inner"
       >
+        <span id="cart-counter" class="cart-counter__wrapper" />
         <span class="sr-only">Open your cart</span>
         <svg
           aria-hidden="true"
@@ -104,11 +106,7 @@
           <use href="#svg_icon-cart" fill="#69707D" fill-rule="nonzero" />
         </svg>
       </button>
-      <button
-        aria-expanded={dropdownExpanded}
-        class="js-button"
-        data-for=".dropdown__inner"
-      >
+      <button aria-expanded={dropdownExpanded} data-for=".dropdown__inner">
         <span class="sr-only">Open your cart</span>
         <img
           aria-hidden="true"
@@ -124,7 +122,17 @@
         aria-hidden={!dropdownExpanded}
         bind:this={dropdown}
       >
-        <article class="dropdown__widget">DROPDOWN</article>
+        <article class="dropdown__widget" data-has-items="false">
+          <h2 class="sr-only">Your cart</h2>
+          <section class="copy">
+            <h2 class="copy__heading copy__heading--secondary">Cart</h2>
+          </section>
+          <section class="copy dropdown__placeholder">
+            <p class="copy__paragraph">Your cart is empty.</p>
+          </section>
+          <ul id="cart-dropdown" class="cart-dropdown" />
+          <button class="button button--accent">Checkout</button>
+        </article>
       </div>
     </div>
   </nav>

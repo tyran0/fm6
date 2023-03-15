@@ -17,6 +17,7 @@
   --color_neutral_black_75: hsl(0 0% 0% / 0.75);
 
   --font_caption: 700 0.75rem / 1 "Kumbh Sans", sans-serif;
-  --font_heading: 700 1.75rem / 1.1 "Kumbh Sans", sans-serif;
+  --font_heading-primary: 700 1.75rem / 1.1 "Kumbh Sans", sans-serif;
+  --font_heading-secondary: 700 1rem / 1.1 "Kumbh Sans", sans-serif;
   --font_paragraph: 400 1rem / 1.5 "Kumbh Sans", sans-serif;
 }

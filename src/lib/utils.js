@@ -6,8 +6,10 @@ export function getOutermostParent(node, callback, limit = document.body) {
 }
 
 export function getButton(target, root) {
-  const button = getOutermostParent(target,
-    node => node.nodeName === 'BUTTON',
-    root);
+  const button = getOutermostParent(
+    target,
+    (node) => node.nodeName === "BUTTON",
+    root
+  );
   if (button) return button;
 }
