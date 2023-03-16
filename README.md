@@ -10,7 +10,6 @@ This is a solution to the [E-commerce product page challenge on Frontend Mentor]
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
 - [Author](#author)
 
 ## Overview
@@ -34,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [www.frontendmentor.io/solutions/ecommerce-product-page-svelte-NTlfXgQghl](https://www.frontendmentor.io/solutions/ecommerce-product-page-svelte-NTlfXgQghl)
 - Live Site URL: [tyran0-fm6-svelte.netlify.app](https://tyran0-fm6-svelte.netlify.app/)
 
 ## My process
@@ -47,26 +46,6 @@ Users should be able to:
 - CSS Grid
 - Mobile-first workflow
 - [Svelte](https://svelte.dev/) - JS library
-
-### What I learned
-
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
 
 ## Author
 
