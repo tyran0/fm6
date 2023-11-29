@@ -34,7 +34,6 @@ Users should be able to:
 ### Links
 
 - Solution URL: [www.frontendmentor.io/solutions/ecommerce-product-page-svelte-NTlfXgQghl](https://www.frontendmentor.io/solutions/ecommerce-product-page-svelte-NTlfXgQghl)
-- Live Site URL: [tyran0-fm6-svelte.netlify.app](https://tyran0-fm6-svelte.netlify.app/)
 
 ## My process
 
